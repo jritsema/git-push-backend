@@ -10,7 +10,7 @@ cd $1.git
 git init --bare
 
 # create post-receive hook
-tee hooks/post-receive <<EOF
+tee hooks/post-receive <<EOF >/dev/null
 #!/bin/bash
 set -e
 
@@ -22,3 +22,7 @@ cd $GIT_WORK_TREE
 echo "TODO: something interesting"
 EOF
 chmod 755 hooks/post-receive
+
+echo ""
+echo "customize $1.git/hooks/post-receive"
+echo "git remote add build $1.git"

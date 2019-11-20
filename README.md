@@ -9,24 +9,11 @@ Sets up a git repo that can be used to run custom scripts when pushed to. Useful
 setup backend
 ```
 ./git-push-backend my-app
-```
+Initialized empty Git repository in /Users/foo/my-app.git/
 
-customize script to run on git push
+customize my-app.git/hooks/post-receive
+git remote add build my-app.git
 ```
-vim my-app.git/hooks/post-receive
-```
-```bash
-#!/bin/bash
-set -e
-
-echo "checking out code..."
-export GIT_WORK_TREE=/home/pi/my-app
-git checkout -f master
-cd $GIT_WORK_TREE
-
-echo "TODO: something interesting"
-```
-
 ---
 
 #### client
