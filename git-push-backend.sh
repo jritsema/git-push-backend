@@ -17,7 +17,7 @@ set -e
 echo "checking out code..."
 export GIT_WORK_TREE=$HOME/$1
 git checkout -f master
-cd $GIT_WORK_TREE
+cd $HOME/$1
 
 echo "TODO: something interesting"
 EOF
