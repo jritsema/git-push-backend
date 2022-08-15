@@ -15,9 +15,9 @@ tee hooks/post-receive <<EOF >/dev/null
 set -e
 
 echo "checking out code..."
-export GIT_WORK_TREE=$HOME/$1
-git checkout -f master
-cd $HOME/$1
+export GIT_WORK_TREE=$1
+git checkout -f main
+cd $1
 
 echo "TODO: something interesting"
 EOF
