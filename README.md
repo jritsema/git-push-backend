@@ -1,30 +1,21 @@
 # git-push-backend
 
-Sets up a git repo that can be used to run custom scripts when pushed to. Useful for doing simple CI/CD.
+Sets up a git bare repo that can be used to run custom scripts when pushed to. Useful for doing simple CI/CD.
 
 ### usage
 
-#### server
-
-setup backend
+run the following on your server
+```sh
+./git-push-backend /Users/foo/my-app
 ```
-./git-push-backend my-app
+```
 Initialized empty Git repository in /Users/foo/my-app.git/
 
-customize my-app.git/hooks/post-receive
-git remote add build my-app.git
-```
----
+add an executable `build.sh` script to your repo
 
-#### client
+to execute, run the following:
 
-add the new backend as a remote to your source repo
-```
-git remote add build pi@192.168.1.1:/home/pi/my-app.git
+git remote add build /Users/foo/my-app.git
+git push build main
 ```
 
-push changes
-```
-git commit -am "change"
-git push build master
-```

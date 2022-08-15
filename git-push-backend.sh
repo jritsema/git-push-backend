@@ -34,5 +34,9 @@ EOF
 chmod 755 hooks/post-receive
 
 echo ""
-echo "customize $1.git/hooks/post-receive"
+echo "add an executable \`build.sh\` script to your repo"
+echo ""
+echo "to execute, run the following:"
+echo ""
 echo "git remote add build $1.git"
+echo "git push build main"
