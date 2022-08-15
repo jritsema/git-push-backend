@@ -19,7 +19,17 @@ export GIT_WORK_TREE=$1
 git checkout -f main
 cd $1
 
-echo "TODO: something interesting"
+# execute build script (if exists)
+if test -f build.sh; then
+	echo ""
+	echo "executing build.sh..."
+  ./build.sh
+	echo ""
+else
+	echo ""
+	echo "build.sh not found"
+	echo ""
+fi
 EOF
 chmod 755 hooks/post-receive
 
